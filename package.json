@@ -4,8 +4,16 @@
     "publishConfig": {
         "access": "public"
     },
+    "main": "index.js",
+    "module": "index.mjs",
+    "types": "index.d.ts",
+    "files": [
+        "index.js",
+        "index.mjs",
+        "index.d.ts"
+    ],
     "scripts": {
-        "cjs": "ascjs index.mjs index.js"
+        "cjs": "cat index.mjs | ascjs | prettier --stdin-filepath index.js > index.js"
     },
     "devDependencies": {
         "ascjs": "^5.0.1",
