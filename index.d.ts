@@ -1,5 +1,13 @@
-export declare function promiseToSignal(promise: Promise<any>): AbortSignal
-export declare function resolveToSignal(promise: Promise<any>): AbortSignal
-export declare function rejectToSignal(promise: Promise<any>): AbortSignal
-export declare function signalToPromise<T = any>(signal: AbortSignal): Promise<T>
-export declare function signalToReject<Err = any>(signal: AbortSignal): Promise<never, Err>
+export declare function promiseToSignal(
+    promise: Promise<any>,
+    options?: {
+        waitFor?: 'resolve' | 'reject'
+    }
+): AbortSignal
+
+export declare function signalToPromise<T = any>(
+    signal: AbortSignal,
+    options?: {
+        rejection?: boolean
+    }
+): Promise<T>
