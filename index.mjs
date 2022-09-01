@@ -10,8 +10,16 @@ export function promiseToSignal(promise, { waitFor } = {}) {
 }
 
 export function signalToPromise(signal, { rejection = false } = {}) {
-    if (signal.aborted) return Promise.resolve(signal.reason)
+    if (signal.aborted) {
+        return Promise[rejection ? 'reject' : 'resolve'](signal.reason)
+    }
     return new Promise((resolve, reject) => {
-        signal.addEventListener('abort', ev => (rejection ? reject : resolve)(ev.target?.reason), { once: true })
+        signal.addEventListener(
+            'abort',
+            ev => {
+                ;(rejection ? reject : resolve)(ev.target?.reason)
+            },
+            { once: true }
+        )
     })
 }
