@@ -12,6 +12,10 @@
         "index.mjs",
         "index.d.ts"
     ],
+    "exports": {
+        "require": "./index.js",
+        "import": "./index.mjs"
+    },
     "scripts": {
         "cjs": "cat index.mjs | ascjs | prettier --stdin-filepath index.js > index.js"
     },
