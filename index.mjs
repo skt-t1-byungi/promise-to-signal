@@ -6,6 +6,8 @@ export function promiseToSignal(promise, { waitFor } = {}) {
             reject: 'catch',
         }[waitFor] || 'finally'
     ](() => aborter.abort())
+        // Prevents the duplicate 'unhandledRejection'.
+        .catch(Function.prototype)
     return aborter.signal
 }
 

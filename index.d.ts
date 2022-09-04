@@ -1,7 +1,7 @@
 export declare function promiseToSignal(
     promise: Promise<any>,
     options?: {
-        waitFor?: 'resolve' | 'reject'
+        waitFor?: 'resolve' | 'reject' | 'settle'
     }
 ): AbortSignal
 

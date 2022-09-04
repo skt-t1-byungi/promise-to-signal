@@ -1,9 +1,14 @@
 {
     "name": "@byungi/promise-to-signal",
     "version": "0.0.1",
-    "publishConfig": {
-        "access": "public"
-    },
+    "description": "Convert a Promise to a AbortSignal",
+    "keywords": [
+        "abort",
+        "abortcontroller",
+        "abortsignal",
+        "promise",
+        "signal"
+    ],
     "main": "index.js",
     "module": "index.mjs",
     "types": "index.d.ts",
@@ -17,10 +22,25 @@
         "import": "./index.mjs"
     },
     "scripts": {
-        "cjs": "cat index.mjs | ascjs | prettier --stdin-filepath index.js > index.js"
+        "cjs": "cat index.mjs | ascjs | prettier --stdin-filepath index.js > index.js",
+        "build": "npm run cjs",
+        "test": "tap",
+        "testw": "tap -w"
     },
     "devDependencies": {
         "ascjs": "^5.0.1",
         "prettier": "^2.7.1"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/skt-t1-byungi/promise-to-signal"
+    },
+    "homepage": "https://github.com/skt-t1-byungi/promise-to-signal",
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "tap": "^16.3.0"
     }
 }

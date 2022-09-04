@@ -1,5 +1,7 @@
 # @byungi/promise-to-signal
 
+Convert a Promise to a AbortSignal.
+
 ## API
 
 ### promiseToSignal(promise, options?)
@@ -16,6 +18,10 @@ fetch({
 ```
 
 #### options.waitFor
+
+-   `settle` (Default) - Wait for Promise to be `resolved` or `rejected`.
+-   `resolve` - Wait for Promise to be `resolved`.
+-   `reject` - Wait for Promise to be `rejected`.
 
 ### signalToPromise(signal, options?)
 
@@ -34,6 +40,31 @@ await Promise.race([
 ```
 
 #### options.rejection
+
+Instead of resolved, it is rejected with abort's reason.
+
+```js
+try {
+    await Promise.race([
+        asyncTask(),
+        signalToPromise(signal, {
+            rejection: true,
+        }),
+    ])
+} catch (err) {
+    if (err instanceof DOMException) {
+        /* ... */
+    }
+}
+```
+
+This option does not support custom errors. Instead, do it like below.
+
+```js
+signalToPromise(signal).then(() => {
+    throw new CustomError()
+})
+```
 
 ## License
 
