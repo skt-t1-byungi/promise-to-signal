@@ -1,5 +1,6 @@
 import { test } from 'tap'
 import { promiseToSignal, signalToPromise } from './index.mjs'
+import 'abortcontroller-polyfill/dist/polyfill-patch-fetch'
 
 test('promiseToSignal', async t => {
     t.type(promiseToSignal(newDefer().promise), AbortSignal)
