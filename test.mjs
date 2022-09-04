@@ -86,5 +86,3 @@ function newDefer() {
         ),
     })
 }
-
-function noop() {}
