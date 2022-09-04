@@ -21,7 +21,7 @@
         "require": "./index.js",
         "import": "./index.mjs"
     },
-    "require": {
+    "engines": {
         "node": ">=14.0.0"
     },
     "scripts": {
