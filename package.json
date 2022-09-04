@@ -22,7 +22,7 @@
         "import": "./index.mjs"
     },
     "engines": {
-        "node": ">=14.0.0"
+        "node": ">=15.0.0"
     },
     "scripts": {
         "cjs": "cat index.mjs | ascjs | prettier --stdin-filepath index.js > index.js",
@@ -31,7 +31,6 @@
         "prepublishOnly": "npm test && npm run cjs"
     },
     "devDependencies": {
-        "abortcontroller-polyfill": "^1.7.3",
         "ascjs": "^5.0.1",
         "prettier": "^2.7.1"
     },
