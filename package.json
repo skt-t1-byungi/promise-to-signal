@@ -21,9 +21,6 @@
         "require": "./index.js",
         "import": "./index.mjs"
     },
-    "engines": {
-        "node": ">=15.0.0"
-    },
     "scripts": {
         "cjs": "cat index.mjs | ascjs | prettier --stdin-filepath index.js > index.js",
         "test": "tap",
